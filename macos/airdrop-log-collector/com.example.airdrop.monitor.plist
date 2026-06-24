@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.example.airdrop.monitor</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/env</string>
+        <string>python3</string>
+        <string>/Library/Application Support/airdrop-monitor/airdrop_log_collector.py</string>
+        <string>--base-dir</string>
+        <string>/var/log/airdrop-monitor</string>
+        <string>--interval-seconds</string>
+        <string>900</string>
+        <string>--include-info</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>900</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/airdrop-monitor/launchd.stdout.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/airdrop-monitor/launchd.stderr.log</string>
+</dict>
+</plist>

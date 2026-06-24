@@ -1,0 +1,72 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2821
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Bold;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19120\viewh15600\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b\fs32 \cf0 \ul \ulc0 TeamViewer Packages for Mass Deployment
+\fs28 \ulnone \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 These packages are intended for mass deployment in organizations, e.g. through MDM systems. \
+\
+With these packages, 
+\f0\b no TeamViewer windows are opened
+\f1\b0  after installation. For the full TeamViewer client, the 
+\f0\b Start with macOS setting will be on by default
+\f1\b0  (this is the recommended setup for the full TeamViewer client on managed devices).\
+\
+After installation, the device can be assigned (managed) using the scripts provided in the 
+\f2 Examples/
+\f1  folder.\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \ul \
+Installing as a custom Host module\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \ulnone \
+To install a custom Host module, rename the installer package so it ends in 
+\f2 -idc<custom config ID>
+\f1 , e.g.\
+\
+
+\f2   TeamViewerHost-idc3a42n.pkg
+\f1 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \ul \
+Command line installation of TeamViewer without MDM\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \ulnone \
+To install without an MDM, use the macOS 
+\f2 installer
+\f1  command in your scripts, e.g.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f3\b \cf0 \
+
+\f2\b0   sudo installer -pkg /path/to/TeamViewerHost.pkg -target /
+\f1 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \ul \
+Uninstalling existing TeamViewer versions\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \ulnone \
+On devices that have TeamViewer installed, instructions for command line uninstall can be found in\
+\
+  
+\f2 /Library/Application Support/TeamViewer
+\f1  \
+\
+}

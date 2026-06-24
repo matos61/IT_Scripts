@@ -11,6 +11,12 @@ crontab.bak
 .mac-migrate-backup-*/
 dist/
 
+# Data exports & site-specific lists — never commit real account data
+*.csv
+known_bots.txt
+excluded_bots*.csv
+siem.conf
+
 # macOS / editor cruft
 .DS_Store
 *.swp

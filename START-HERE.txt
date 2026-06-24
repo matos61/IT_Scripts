@@ -1,0 +1,56 @@
+============================================================
+ mac-migrate — move your dev setup to a new Mac in minutes
+============================================================
+
+Carries your tool configs + logins (gam, gcloud, gh, ssh, aws,
+docker, rclone, git, …) to a new machine and verifies they work.
+Everything is encrypted with a passphrase you choose.
+
+------------------------------------------------------------
+ON YOUR OLD MAC  (the one that already works)
+------------------------------------------------------------
+1. Open Terminal in this folder.
+2. See what will transfer:
+       ./mac-migrate.sh scan
+   (Open manifest.txt and delete any line you DON'T want to move.)
+3. Make the encrypted bundle:
+       ./mac-migrate.sh bundle
+   -> type a passphrase (remember it!). Produces:
+       mac-migrate-bundle.tar.gz.enc
+
+------------------------------------------------------------
+MOVE IT
+------------------------------------------------------------
+Copy this WHOLE folder (scripts + the .enc bundle) to the new
+Mac — AirDrop, USB stick, or scp. Keep the files together.
+
+------------------------------------------------------------
+ON YOUR NEW MAC
+------------------------------------------------------------
+1. Open Terminal in this folder.
+2. Run the installer:
+       ./install-newmac.sh
+   It finds the bundle, installs Homebrew + your tools, restores
+   your configs, and runs a test suite. Enter the same passphrase
+   when asked.
+3. Open a NEW Terminal window when it finishes.
+
+------------------------------------------------------------
+IF SOMETHING SHOWS [fail]
+------------------------------------------------------------
+Usually just needs a quick re-login, e.g.:
+       gcloud auth login
+       gh auth login
+       gam oauth create
+Then re-check:
+       ./mac-migrate.sh test
+
+------------------------------------------------------------
+NOTES
+------------------------------------------------------------
+• The .enc bundle holds real credentials. The passphrase is the
+  only thing protecting it — pick a strong one, share it OUT OF
+  BAND (not in the same email/chat as the file).
+• Restore backs up anything it overwrites to ~/.mac-migrate-backup-*
+• Full docs: README.md
+============================================================

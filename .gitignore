@@ -1,0 +1,19 @@
+# mac-migrate runtime artifacts — these contain personal paths & credentials,
+# never commit them.
+*.enc
+*.tar.gz
+manifest.txt
+scan-report.txt
+Brewfile
+crontab.bak
+.stage/
+.test-results
+.mac-migrate-backup-*/
+dist/
+
+# macOS / editor cruft
+.DS_Store
+*.swp
+*~
+.vscode/
+.idea/

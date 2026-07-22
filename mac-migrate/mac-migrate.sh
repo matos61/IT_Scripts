@@ -54,6 +54,7 @@ gnupg|.gnupg|gpg --list-secret-keys|1
 gam|.gam bin/gam7 bin/gamadv-xtd3|_t_gam|1
 gcloud|.config/gcloud .boto|_t_gcloud|1
 gh|.config/gh|gh auth status|1
+claude|.claude.json .claude/settings.json .claude/settings.local.json .claude/CLAUDE.md .claude/commands .claude/agents .claude/skills .claude/hooks .claude/keybindings.json .claude/*.py .claude/*.sh .claude/plugins/known_marketplaces.json .claude/plugins/installed_plugins.json|_t_claude|1
 aws|.aws|aws sts get-caller-identity|1
 kube|.kube/config|kubectl config get-contexts|1
 docker|.docker/config.json|docker info|1
@@ -76,6 +77,13 @@ _t_gam(){
   return 1
 }
 _t_gcloud(){ gcloud auth list --filter=status:ACTIVE --format="value(account)" 2>/dev/null | grep -q .; }
+_t_claude(){
+  command -v claude >/dev/null 2>&1 || return 1
+  for f in "$HOME/.claude.json" "$HOME/.claude/settings.json" "$HOME/.claude/settings.local.json"; do
+    [ -f "$f" ] && { python3 -c "import json,sys; json.load(open(sys.argv[1]))" "$f" 2>/dev/null || return 1; }
+  done
+  return 0
+}
 
 # Iterate catalog rows: calls `_row name paths test secret` for each.
 catalog_each(){
